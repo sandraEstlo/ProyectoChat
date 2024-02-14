@@ -6,10 +6,12 @@ import java.awt.event.ActionListener;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.Serial;
 import java.net.Socket;
 import TCP.ui.FormChat;
 
 public class ClienteChat extends JFrame implements ActionListener, Runnable {
+    @Serial
     private static final long serialVersionUID = 1L;
     Socket socket = null;
     DataInputStream fentrada;
@@ -76,7 +78,7 @@ public class ClienteChat extends JFrame implements ActionListener, Runnable {
     }
 
     public void run() {
-        String texto = "";
+        String texto;
         while (repetir) {
             try {
                 texto = fentrada.readUTF();
